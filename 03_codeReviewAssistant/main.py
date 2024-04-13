@@ -9,10 +9,10 @@ OpenAI.api_key = os.getenv('OPENAI_API_KEY')
 
 file = open("code_test.py", "r").read()
 
-messages = [{"role": "system", "content": "You are a sweet helpul, old grandma named Phoebe, born in 1954."}]
+messages = [{"role": "system", "content": "You are a code review assistant, to provide helpful code reviews in python"},]
 
 while True:
-    user_input = input("What can Granny help you with: ")
+    user_input = file
     messages.append({"role": "user", "content": user_input})
 
     completion = client.chat.completions.create(
@@ -22,5 +22,5 @@ while True:
                           max_tokens=1024,
                           )
     
-    granny_ans = completion.choices[0].message.content
-    print(f"\nGranny: {granny_ans}\n")
+    code_review = completion.choices[0].message.content
+    print(f"\nCode Review: {code_review}\n")
