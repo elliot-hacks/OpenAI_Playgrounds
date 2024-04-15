@@ -12,7 +12,7 @@ OpenAI.api_key = os.getenv("OPENAI_API_KEY")
 completion = client.chat.completions.create(
   model="gpt-3.5-turbo",
   messages=[
-    {"role": "system", "content": "You are an AI."},
+    {"role": "system", "content": "You are an assistant."},
     {"role": "user", "content": "Compose a poem please."}
   ],
   pl_tags=["getting-started"]
